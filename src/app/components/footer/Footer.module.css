@@ -1,0 +1,67 @@
+/* src/components/footer/Footer.module.css */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 50px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+}
+
+.contacts {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Alinha os ícones à esquerda */
+  margin-top: 10px;
+}
+
+.contactList {
+  list-style-type: none; /* Remove o marker */
+  padding: 0;
+  display: flex;
+  margin-left: 10px;
+}
+
+.contactList li {
+  margin: 0 10px;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.link:hover {
+  color: #949393;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .footer {
+    padding: 10px 20px;
+    flex-direction: column;
+    text-align: center;
+    font-size: 0.8rem;
+  }
+
+  .contacts {
+    margin-top: 10px;
+    justify-content: center;
+    padding-bottom: 10px;
+  }
+
+  .contactList {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .contactList li {
+    margin: 0 10px;
+  }
+}

@@ -1,0 +1,38 @@
+/* src/components/header/Header.module.css */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+  }
+  
+  .nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  .nav li {
+    margin-right: 10px;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .nav {
+      display: block;
+      margin-top: 10px;
+    }
+    .nav li {
+        margin-bottom: 5px;
+    }
+    .link {
+        font-size: 1rem;
+    
+  }
+  
