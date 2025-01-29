@@ -1,0 +1,14 @@
+{
+  "news": [
+    {
+      "title": "Notícia de Exemplo",
+      "description": "Esta é uma notícia de exemplo no json-server.",
+      "id": "1"
+    },
+    {
+      "title": "Capim santo cura depressão",
+      "description": "Estudos da Universidade FakeNews de Brasília apontam que em 83% dos casos que os pacientes tomaram chá de capim santo diariamente tiveram a cura definitiva da depressão",
+      "id": "cb78"
+    }
+  ]
+}

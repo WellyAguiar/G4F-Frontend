@@ -1,38 +1,45 @@
 /* src/components/header/Header.module.css */
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 10px 20px;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-  }
-  
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 10px 20px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+}
+
+.nav {
+  display: flex;
+  gap: 10px;
+}
+.toggleButton {
+  padding: 10px 15px;
+  border: none;
+  background: white;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.toggleButton:hover {
+  background: #ddd;
+}
+
+.active {
+  background: #007bff;
+  color: white;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
   .nav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
+    display: block;
+    margin-top: 10px;
   }
-  .nav li {
-    margin-right: 10px;
+  .link {
+    font-size: 1rem;
   }
-  
-  /* Responsividade */
-  @media (max-width: 768px) {
-    .nav {
-      display: block;
-      margin-top: 10px;
-    }
-    .nav li {
-        margin-bottom: 5px;
-    }
-    .link {
-        font-size: 1rem;
-    
-  }
-  
+}

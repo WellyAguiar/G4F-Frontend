@@ -1,0 +1,83 @@
+.container {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input, .textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .button, .buttonEdit, .buttonDelete {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .button {
+    background: #333;
+    color: white;
+  }
+  
+  .buttonEdit {
+    background: #998c02;
+    color: white;
+  }
+  
+  .buttonDelete {
+    background: #6c0d0d;
+    color: white;
+  }
+  
+  .list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .item {
+    background: #f5f5f5;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    position: relative;
+  }
+  
+  .item .buttonEdit, .item .buttonDelete {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+  
+  .item .buttonDelete {
+    background-color: #d92e2e;  /* Cor mais destacada para o botão de excluir */
+  }
+  
+  .item .buttonEdit {
+    background-color: #da9f02;  /* Cor de destaque para o botão de editar */
+  }
+  
+  /* Container para os botões de editar e deletar lado a lado */
+  .item .buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .item .buttonDelete:hover,
+  .item .buttonEdit:hover {
+    opacity: 0.8;  /* Efeito de hover para os botões */
+  }
+  

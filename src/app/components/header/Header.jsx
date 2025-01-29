@@ -1,28 +1,24 @@
-// src/components/header/Header.jsx
+"use client";
+import React from "react";
 import styles from "./Header.module.css";
-import Link from "next/link";
 
-export default function Header() {
+export default function Header({ selectedPage, onToggle }) {
   return (
     <header className={styles.header}>
-      <h2>
-        <Link href="/" className={styles.nameLink}>
-          Welly Aguiar
-        </Link>
-      </h2>
+      <h1 onClick={() => onToggle("cep")}>Welly Aguiar</h1>
       <nav>
-        <ul className={styles.nav}>
-          <li>
-            <Link href="/news" className={styles.link}>
-              Notícias
-            </Link>
-          </li>
-          <li>
-            <Link href="/páginaexemplo" className={styles.link}>
-              Exemplo
-            </Link>
-          </li>
-        </ul>
+        <button
+          className={`${styles.toggleButton} ${selectedPage === "cep" ? styles.active : ""}`}
+          onClick={() => onToggle("cep")}
+        >
+          Buscar CEP
+        </button>
+        <button
+          className={`${styles.toggleButton} ${selectedPage === "news" ? styles.active : ""}`}
+          onClick={() => onToggle("news")}
+        >
+          Notícias
+        </button>
       </nav>
     </header>
   );
