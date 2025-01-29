@@ -82,6 +82,6 @@ describe("CepSearch Component", () => {
     const buttonElement = screen.getByRole("button", { name: /Buscar/i });
     fireEvent.click(buttonElement);
 
-    expect(screen.getByText(/Carregando.../i)).toBeInTheDocument();
+    expect(screen.getByText(/Buscando.../i)).toBeInTheDocument();
   });
 });

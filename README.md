@@ -44,9 +44,10 @@ Antes de rodar o projeto, instale as dependências:
 
     2. Rode a aplicação no Docker
 
-        docker run -p 3000:3000
+        docker run -p 3000:3000 -p 3333:3333 welly-frontend
 
-    Isso irá expor a aplicação na porta 3000 do seu computador.
+
+    Isso irá expor a aplicação na porta 3000 e 3333 do seu computador.
 
 ### Testes
 
