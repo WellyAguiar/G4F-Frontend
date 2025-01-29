@@ -4,13 +4,15 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
+    width: 90%;
     margin: 20px auto;
   }
   
   .form {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
     margin-bottom: 20px;
   }
   
@@ -20,7 +22,8 @@
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-right: 10px;
+    width: 100%;
+    max-width: 250px;
   }
   
   .button {
@@ -31,18 +34,45 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background 0.3 ease-in-out;
   }
   
   .button:hover {
     background-color: #444;
   }
-  
+
+  .button:disabled {
+    background-color: #bbb;
+    cursor: not-allowed;
+  }
+  .feedback {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: green;
+  }
   .result {
     margin-top: 20px;
+    text-align: left;
   }
   
   .error {
     color: red;
     font-weight: bold;
+    text-align: center;
   }
   
+  @media (max-width: 480px) {
+    .form {
+      flex-direction: column;
+      gap: 5px;
+    }
+  
+    .input {
+      max-width: 100%;
+    }
+  
+    .button {
+      width: 100%;
+    }
+  }
