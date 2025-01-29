@@ -62,7 +62,7 @@
   text-align: center;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 503px) {
   .form {
     flex-direction: column;
     gap: 5px;
