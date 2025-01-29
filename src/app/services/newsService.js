@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API_URL = "http://host.docker.internal:3333/news";
+const API_URL = process.env.NODE_ENV === 'production' 
+  ? "http://localhost:3333/news" 
+  : "http://host.docker.internal:3333/news";
 
 // Função para obter todas as notícias
 export const getNews = async () => {
