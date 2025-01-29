@@ -65,14 +65,14 @@
 }
 
 .item .buttonDelete {
-  background-color: #d92e2e; /* Cor mais destacada para o botão de excluir */
+  background-color: #d92e2e; 
 }
 
 .item .buttonEdit {
-  background-color: #da9f02; /* Cor de destaque para o botão de editar */
+  background-color: #da9f02;
 }
 
-/* Container para os botões de editar e deletar lado a lado */
+
 .item .buttonContainer {
   display: flex;
   justify-content: flex-end;
@@ -82,7 +82,7 @@
 
 .item .buttonDelete:hover,
 .item .buttonEdit:hover {
-  opacity: 0.8; /* Efeito de hover para os botões */
+  opacity: 0.8; 
 }
 
 .statusMessage {

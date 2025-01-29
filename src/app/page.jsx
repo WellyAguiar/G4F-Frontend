@@ -7,6 +7,7 @@ import CepSearch from "./components/cepSearch/CepSearch";
 import NewsCrud from "./components/news/NewsCrud";
 
 export default function Home() {
+  // Definindo o estado para a página selecionada (CEP ou Notícias)
   const [selectedPage, setSelectedPage] = useState("cep");
 
   return (

@@ -1,25 +1,27 @@
-/* src/styles/globals.css */
+/* Resetando margens e paddings */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Estilo global do corpo da página */
 body {
   font-family: Arial, sans-serif;
   background-color: #f5f5f5;
   color: #333;
-  margin-top: 60px; /* Para dar espaço ao header fixo */
+  margin-top: 60px;
 }
 
-/* Links */
+/* Estilo dos links */
 a {
   text-decoration: none;
   color: inherit;
 }
 
+/* Responsividade para telas pequenas (máx 768px) */
 @media (max-width: 768px) {
   body {
-    margin-top: 80px; /* Para dar mais espaço ao header em dispositivos móveis */
+    margin-top: 80px;
   }
 }

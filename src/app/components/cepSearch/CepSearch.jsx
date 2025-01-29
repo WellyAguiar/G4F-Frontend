@@ -4,29 +4,32 @@ import axios from "axios";
 import styles from "./CepSearch.module.css";
 
 export default function CepSearch() {
+  // Definindo estados para CEP, endereço, status de carregamento e erro
   const [cep, setCep] = useState("");
   const [address, setAddress] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  // Função para atualizar o estado do CEP
   const handleCepChange = (e) => {
     setCep(e.target.value);
   };
 
+  // Função de busca do endereço com base no CEP
   const handleSearch = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError("");
-    setAddress(null); // Limpa o endereço anterior antes de fazer a nova busca
+    setAddress(null);
 
     try {
       const response = await axios.get(`http://viacep.com.br/ws/${cep}/json/`);
 
-      // Verifica se os dados da resposta são válidos
+      // Verifica se o CEP é válido
       if (response.data.erro) {
         setError("CEP não encontrado");
       } else {
-        setAddress(response.data);
+        setAddress(response.data); // Armazena os dados do endereço
       }
     } catch (err) {
       setError("Erro ao buscar endereço");

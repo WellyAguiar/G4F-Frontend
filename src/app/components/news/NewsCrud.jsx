@@ -16,28 +16,32 @@ export default function NewsCrud() {
   const [statusMessage, setStatusMessage] = useState("");
   const [statusType, setStatusType] = useState("");
 
-  useEffect(() => {
+    // Carregar as notícias ao montar o componente
+useEffect(() => {
     loadNews();
   }, []);
 
-  const loadNews = async () => {
+    // Função para carregar as notícias
+const loadNews = async () => {
     const data = await getNews();
 
-    // Ordenando pela data de criação
+
     const sortedData = data.sort((a, b) => {
-      return new Date(b.createdAt) - new Date(a.createdAt); // Ordenando por createdAt
+      return new Date(b.createdAt) - new Date(a.createdAt);
     });
 
     setNewsList(sortedData);
   };
 
-  const handleSubmit = async (e) => {
+  c  // Função para enviar o formulário
+  onst handleSubmit = async (e) => {
     e.preventDefault();
 
     setStatusMessage("");
     setStatusType("");
 
-    if (title.length < 5) {
+        // Validação de título e descrição
+if (title.length < 5) {
       setStatusMessage("O título deve ter pelo menos 5 caracteres.");
       setStatusType("error");
       return;
@@ -52,30 +56,32 @@ export default function NewsCrud() {
       if (editingId) {
         await updateNews(editingId, { title, description });
         setStatusMessage("Notícia atualizada com sucesso!");
-        setStatusType("success");
       } else {
         await createNews({ title, description });
         setStatusMessage("Notícia criada com sucesso!");
-        setStatusType("success");
       }
+      setStatusType("success");
+      loadNews(); // Atualiza a lista após a criação/atualização
     } catch (error) {
       setStatusMessage("Ocorreu um erro. Tente novamente.");
       setStatusType("error");
     }
 
-    setTitle('');
+        // Limpar campos e estado de edição
+setTitle('');
     setDescription('');
     setEditingId(null);
-    loadNews();
   };
 
-  const handleEdit = (newsItem) => {
+    // Função para editar uma notícia
+const handleEdit = (newsItem) => {
     setTitle(newsItem.title);
     setDescription(newsItem.description);
     setEditingId(newsItem.id);
   };
 
-  const handleDelete = async (id) => {
+    // Função para excluir uma notícia
+const handleDelete = async (id) => {
     await deleteNews(id);
     loadNews();
   };
