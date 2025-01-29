@@ -33,8 +33,7 @@ const loadNews = async () => {
     setNewsList(sortedData);
   };
 
-  c  // Função para enviar o formulário
-  onst handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     setStatusMessage("");
