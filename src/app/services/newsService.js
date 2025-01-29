@@ -7,18 +7,25 @@ export const getNews = async () => {
   return response.data;
 };
 
-export const getNewsById = async (id) => {
-  const response = await axios.get(`${API_URL}/${id}`);
-  return response.data;
-};
-
 export const createNews = async (news) => {
-  const response = await axios.post(API_URL, news);
+  // Adicionando createdAt ao criar a notícia
+  const newNews = {
+    ...news,
+    createdAt: new Date().toISOString(), // Garantindo que a data de criação seja inserida
+  };
+
+  const response = await axios.post(API_URL, newNews);
   return response.data;
 };
 
 export const updateNews = async (id, news) => {
-  const response = await axios.put(`${API_URL}/${id}`, news);
+  // Se o campo createdAt não for fornecido, mantemos a data original
+  const updatedNews = {
+    ...news,
+    createdAt: news.createdAt || new Date().toISOString(), // Usando a data de criação original se for uma atualização
+  };
+
+  const response = await axios.put(`${API_URL}/${id}`, updatedNews);
   return response.data;
 };
 

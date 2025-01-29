@@ -20,12 +20,18 @@ export default function NewsCrud() {
 
   const loadNews = async () => {
     const data = await getNews();
-    setNewsList(data);
+
+    // Ordenando pela data de criação (mais recente primeiro)
+    const sortedData = data.sort((a, b) => {
+      return new Date(b.createdAt) - new Date(a.createdAt); // Ordenando por createdAt
+    });
+
+    setNewsList(sortedData);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (editingId) {
       await updateNews(editingId, { title, description });
     } else {
@@ -75,7 +81,7 @@ export default function NewsCrud() {
           {editingId ? "Atualizar Notícia" : "Criar Notícia"}
         </button>
       </form>
-      
+
       <ul className={styles.list}>
         {newsList.map((newsItem) => (
           <li key={newsItem.id} className={styles.item}>
