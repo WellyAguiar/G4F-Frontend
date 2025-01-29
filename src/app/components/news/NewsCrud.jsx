@@ -13,6 +13,8 @@ export default function NewsCrud() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [editingId, setEditingId] = useState(null);
+  const [statusMessage, setStatusMessage] = useState("");
+  const [statusType, setStatusType] = useState("");
 
   useEffect(() => {
     loadNews();
@@ -21,7 +23,7 @@ export default function NewsCrud() {
   const loadNews = async () => {
     const data = await getNews();
 
-    // Ordenando pela data de criação (mais recente primeiro)
+    // Ordenando pela data de criação
     const sortedData = data.sort((a, b) => {
       return new Date(b.createdAt) - new Date(a.createdAt); // Ordenando por createdAt
     });
@@ -32,10 +34,33 @@ export default function NewsCrud() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (editingId) {
-      await updateNews(editingId, { title, description });
-    } else {
-      await createNews({ title, description });
+    setStatusMessage("");
+    setStatusType("");
+
+    if (title.length < 5) {
+      setStatusMessage("O título deve ter pelo menos 5 caracteres.");
+      setStatusType("error");
+      return;
+    }
+    if (description.length < 20) {
+      setStatusMessage("A descrição deve ter pelo menos 20 caracteres.");
+      setStatusType("error");
+      return;
+    }
+
+    try {
+      if (editingId) {
+        await updateNews(editingId, { title, description });
+        setStatusMessage("Notícia atualizada com sucesso!");
+        setStatusType("success");
+      } else {
+        await createNews({ title, description });
+        setStatusMessage("Notícia criada com sucesso!");
+        setStatusType("success");
+      }
+    } catch (error) {
+      setStatusMessage("Ocorreu um erro. Tente novamente.");
+      setStatusType("error");
     }
 
     setTitle('');
@@ -58,6 +83,13 @@ export default function NewsCrud() {
   return (
     <div className={styles.container}>
       <h2>Gerenciar Notícias</h2>
+
+      {statusMessage && (
+        <div className={`${styles.statusMessage} ${styles[statusType]}`}>
+          {statusMessage}
+        </div>
+      )}
+
       <form onSubmit={handleSubmit} className={styles.form}>
         <input
           type="text"
@@ -68,7 +100,7 @@ export default function NewsCrud() {
           className={styles.input}
         />
         <textarea
-          placeholder="Conteudo da notícia"
+          placeholder="Conteúdo da notícia"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           required
